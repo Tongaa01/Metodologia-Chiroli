@@ -1,0 +1,31 @@
+.containerPrincipalListTareas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.containerTitleAndButton {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+    width: 65%;
+    margin-bottom: 1rem;
+}
+
+.containerList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #ccc;
+    min-height: 60vh;
+    max-height: 62vh;
+    overflow-y: auto;
+    width: 70%;
+    border-radius: 0.4rem;
+}
