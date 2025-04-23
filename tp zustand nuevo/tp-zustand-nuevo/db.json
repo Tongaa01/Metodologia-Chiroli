@@ -1,0 +1,28 @@
+{
+  "tareas": [
+    {
+      "id": "123",
+      "titulo": "titulo1",
+      "descripcion": "desc11aa",
+      "fechaLimite": "2025-04-22"
+    },
+    {
+      "id": "456",
+      "titulo": "titulo2",
+      "descripcion": "desc2",
+      "fechaLimite": "2025-03-28"
+    },
+    {
+      "id": "789",
+      "titulo": "titulo35",
+      "descripcion": "desc35553234234fwfwefw",
+      "fechaLimite": "2025-03-15"
+    },
+    {
+      "id": "88ab0995-9e18-4a44-a76e-9f68cff67c64",
+      "titulo": "no me la puedo creer que funcione",
+      "descripcion": "me vuelvo loco",
+      "fechaLimite": "2025-04-26"
+    }
+  ]
+}
