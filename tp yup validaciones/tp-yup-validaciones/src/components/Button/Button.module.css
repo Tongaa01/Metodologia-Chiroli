@@ -1,0 +1,15 @@
+.containerButton {
+    padding: 0.6rem;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    border-radius: 5px;
+    color: white;
+    border-style: none;
+    background-color: rgb(32, 29, 255);
+}
+
+.containerButton:hover {
+    background-color: rgb(32, 29, 255, 0.8);
+    cursor: pointer;
+}

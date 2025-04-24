@@ -1,0 +1,28 @@
+import { ChangeEvent, FC } from "react"
+import styles from "./Input.module.css"
+
+type IInput = {
+    tipo: string,
+    nombre: string,
+    placeHolder: string,
+    texto: string,
+    value: string,
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+    error: string
+}
+
+export const Input: FC<IInput> = ({ tipo, nombre, placeHolder, texto, value, onChange, error }) => {
+    return (
+        <div className={styles.containerInput}>
+            <p>{texto}</p>
+            <input
+                type={tipo}
+                name={nombre}
+                placeholder={placeHolder}
+                value={value}
+                onChange={onChange}
+            />
+            <p>{error}</p>
+        </div>
+    )
+}

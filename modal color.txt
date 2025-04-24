@@ -1,0 +1,35 @@
+export const Modal = ({textTitleColir}) => {
+
+    const handleColor = ()=>{
+
+switch (key) {
+    case "amarillo":
+        retunr ""
+        break
+
+    default:
+        break
+}
+
+    }
+
+
+  return (
+    <div>
+        <h2 style={{color:${handleColor(textTitleColir)}}}></h2>
+    </div>
+  )
+}
+
+
+
+
+const prueba = () => {
+  return (
+      <div>
+          <Modal textTitleColir='#fea'/>
+      </div>
+  )
+}
+
+export default prueba

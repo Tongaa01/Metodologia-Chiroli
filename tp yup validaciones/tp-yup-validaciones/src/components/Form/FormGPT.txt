@@ -1,0 +1,71 @@
+import { useState } from "react"
+import { validations } from "../../schemas/formSchema"
+import { Button } from "../Button/Button"
+import { Input } from "../Input/Input"
+import styles from "./Form.module.css"
+
+type ErroresForm = {
+  nombre: string;
+  email: string;
+  contraseña: string;
+  repetirContraseña: string;
+}
+
+export const Form = () => {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    email: "",
+    contraseña: "",
+    repetirContraseña: ""
+  })
+
+  const [errores, setErrores] = useState<ErroresForm>({
+    nombre: "",
+    email: "",
+    contraseña: "",
+    repetirContraseña: ""
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      await validations.validate(formData, { abortEarly: false })
+      alert("Formulario válido y enviado")
+      setErrores({ nombre: "", email: "", contraseña: "", repetirContraseña: "" })
+    } catch (err: any) {
+      const nuevosErrores: ErroresForm = {
+        nombre: "",
+        email: "",
+        contraseña: "",
+        repetirContraseña: ""
+      }
+
+      err.inner.forEach((error: any) => {
+        if (error.path in nuevosErrores) {
+          nuevosErrores[error.path as keyof ErroresForm] = error.message
+        }
+      })
+
+      setErrores(nuevosErrores)
+    }
+  }
+
+  return (
+    <form className={styles.containerFields} onSubmit={handleSubmit}>
+      <h2 style={{ display: "flex", justifyContent: "center" }}>Field Validator</h2>
+      <Input tipo="text" nombre="nombre" placeHolder="Nombre..." texto="Ingrese su nombre:" value={formData.nombre} onChange={handleChange} error={errores.nombre} />
+      <Input tipo="email" nombre="email" placeHolder="su.email@ejemplo.com" texto="Ingrese su correo electrónico:" value={formData.email} onChange={handleChange} error={errores.email} />
+      <Input tipo="password" nombre="contraseña" placeHolder="Contraseña..." texto="Ingrese una contraseña" value={formData.contraseña} onChange={handleChange} error={errores.contraseña} />
+      <Input tipo="password" nombre="repetirContraseña" placeHolder="Contraseña..." texto="Repita la contraseña:" value={formData.repetirContraseña} onChange={handleChange} error={errores.repetirContraseña} />
+      <Button />
+    </form>
+  )
+}
